@@ -30,7 +30,7 @@ public class FirstPersonController : MonoBehaviour
         float lookX = mouseMovement.x * Time.deltaTime * mouseSensitivity;
         float lookY = mouseMovement.y * Time.deltaTime * mouseSensitivity;
 
-        cameraUpRotation =- lookY;
+        cameraUpRotation -= lookY;
 
         cameraUpRotation = Mathf.Clamp(cameraUpRotation,-90,90);
 
@@ -40,7 +40,7 @@ public class FirstPersonController : MonoBehaviour
 
         float moveX = movement.x;
         float moveZ = movement.y;
-        Vector3 actual_movement = (transform.forward * moveZ) + (transform.right * moveX);
+        Vector3 actual_movement = transform.forward *  (-moveX) + transform.right * moveZ;
         controller.Move(actual_movement * Time.deltaTime * speed);
     }
     void OnMove(InputValue moveVal)
