@@ -4,6 +4,7 @@ public class FirstPersonController : MonoBehaviour
 {
     Vector2 movement;
     Vector2 mouseMovement;
+    bool hasJumped = false;
     CharacterController controller;
     float cameraUpRotation = 0f;
     
@@ -17,6 +18,7 @@ public class FirstPersonController : MonoBehaviour
     GameObject bulletSpawner;
     [SerializeField]
     GameObject bullet;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -41,6 +43,15 @@ public class FirstPersonController : MonoBehaviour
         float moveX = movement.x;
         float moveZ = movement.y;
         Vector3 actual_movement = transform.forward *  (-moveX) + transform.right * moveZ;
+
+        if (hasJumped)
+        {
+            hasJumped = false;
+            actual_movement.y = 10;
+        }
+
+        actual_movement.y -= 30 * Time.deltaTime;
+
         controller.Move(actual_movement * Time.deltaTime * speed);
     }
     void OnMove(InputValue moveVal)
@@ -54,5 +65,9 @@ public class FirstPersonController : MonoBehaviour
     void OnAttack()
     {
         Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
+    }
+    void OnJump()
+    {
+        hasJumped = true;
     }
 }

@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 38260051939003553}
   serializedVersion: 2
   m_LocalRotation: {x: 0.033321936, y: -0.7014467, z: 0.03285117, w: 0.71118426}
-  m_LocalPosition: {x: -0.52, y: 0.46, z: -0.03}
+  m_LocalPosition: {x: -0.52, y: 0.46, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -302,6 +302,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  cam: {fileID: 38260051939003553}
+  mouseSensitivity: 100
+  bulletSpawner: {fileID: 0}
+  bullet: {fileID: 0}
 --- !u!143 &7806057996067806884
 CharacterController:
   m_ObjectHideFlags: 0
