@@ -11,8 +11,11 @@ public class Enemy_State : MonoBehaviour
     GameObject[] route;
     GameObject target;
     int routeIndex = 0;
+    [SerializeField]
     float speed = 1.0f;
     private State currentState = State.Pace;
+    int health = 6;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -33,7 +36,7 @@ public class Enemy_State : MonoBehaviour
 
             if (routeIndex >= route.Length)
             {
-                routeIndex = 0;
+                routeIndex -= 2;
             }
         }
         GameObject obstacle = CheckForward();
@@ -72,8 +75,13 @@ public class Enemy_State : MonoBehaviour
                 OnPace();
                 break;
             case State.Follow:
-                OnPace();
+                OnFollow();
                 break;
+        }
+        
+        if (health <= 0)
+        {
+            Destroy(gameObject);
         }
     }
     void MoveTo(GameObject t)
@@ -84,8 +92,8 @@ public class Enemy_State : MonoBehaviour
     GameObject CheckForward()
     {
         RaycastHit hit;
-        Debug.DrawRay(transform.position, transform.forward * 10, Color.green);
-        if( Physics.Raycast(transform.position, transform.forward, out hit, 10))
+        Debug.DrawRay(transform.position, transform.forward * 50, Color.green);
+        if( Physics.Raycast(transform.position, transform.forward, out hit, 50))
         {
             FirstPersonController player = hit.transform.gameObject.GetComponent<FirstPersonController>();
 
@@ -96,5 +104,9 @@ public class Enemy_State : MonoBehaviour
             }
         }
         return null;
+    }
+    void OnTriggerEnter(Collider Bullet)
+    {
+        health -= 1;
     }
 }

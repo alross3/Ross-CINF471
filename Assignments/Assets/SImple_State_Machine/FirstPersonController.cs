@@ -2,6 +2,11 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class FirstPersonController : MonoBehaviour
 {
+    private enum State
+    {
+        Normal,
+        Power,
+    }
     Vector2 movement;
     Vector2 mouseMovement;
     bool hasJumped = false;
@@ -18,6 +23,7 @@ public class FirstPersonController : MonoBehaviour
     GameObject bulletSpawner;
     [SerializeField]
     GameObject bullet;
+    private State currentState = State.Normal;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -53,6 +59,17 @@ public class FirstPersonController : MonoBehaviour
         actual_movement.y -= 30 * Time.deltaTime;
 
         controller.Move(actual_movement * Time.deltaTime * speed);
+
+        //Player Powerup State Controller
+        switch(currentState)
+        {
+            case State.Normal:
+                OnNormal();
+                break;
+            case State.Power:
+                OnPowerup();
+                break;
+        }
     }
     void OnMove(InputValue moveVal)
     {
@@ -62,12 +79,38 @@ public class FirstPersonController : MonoBehaviour
     {
         mouseMovement = lookVal.Get<Vector2>();
     }
-    void OnAttack()
+//    void OnJump()
+//    
+//        hasJumped = true;
+//    }
+    void OnTriggerEnter(Collider other)
     {
-        Instantiate(bullet, bulletSpawner.transform.position, bulletSpawner.transform.rotation);
+        if (other.CompareTag("Powerup"))
+        {
+            currentState = State.Power;
+
+        }
+        if (other.CompareTag("Enemy"))
+        {
+            Destroy(gameObject);
+        }
     }
-    void OnJump()
+    //void OnAttack()
+        //{
+            //Instantiate(bullet,bulletSpawner.transform.position, bulletSpawner.transform.rotation);
+        //}
+    void OnPowerup()
     {
-        hasJumped = true;
+        print("Powerup");
+        if (currentState == State.Power)
+        {
+            speed = 10.0f;
+        }
+
     }
+    void OnNormal()
+    {
+        print("Normal");
+    }
+
 }
