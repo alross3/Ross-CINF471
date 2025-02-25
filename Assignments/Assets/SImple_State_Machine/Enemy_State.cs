@@ -95,12 +95,15 @@ public class Enemy_State : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 50, Color.green);
         if( Physics.Raycast(transform.position, transform.forward, out hit, 50))
         {
-            FirstPersonController player = hit.transform.gameObject.GetComponent<FirstPersonController>();
+            PlayerStateManager player = hit.transform.gameObject.GetComponent<PlayerStateManager>();
 
             if (player != null)
             {
-                print(hit.transform.gameObject.name);
-                return hit.transform.gameObject;
+                if (player.currentState != player.sneakState)
+                {
+                    print(hit.transform.gameObject.name);
+                    return hit.transform.gameObject;
+                }
             }
         }
         return null;
