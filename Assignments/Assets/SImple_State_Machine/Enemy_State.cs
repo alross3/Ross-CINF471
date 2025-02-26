@@ -24,7 +24,7 @@ public class Enemy_State : MonoBehaviour
     void OnPace()
     {
         //What we do while pacing
-        print("I'm Pacing");
+        //print("I'm Pacing");
         target = route[routeIndex];
 
         MoveTo(target);
@@ -52,7 +52,7 @@ public class Enemy_State : MonoBehaviour
     void OnFollow()
     {
         //what we do when following
-        print("I'm Following");
+        //print("I'm Following");
         MoveTo(target);
         //what condition changes 
 
