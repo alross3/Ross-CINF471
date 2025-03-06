@@ -17,9 +17,15 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/SImple_State_Machine/State Machine.unity
     guid: 626a7468bfc80024e875ca658c1021c7
-  - enabled: 1
+  - enabled: 0
     path: Assets/MoreStateMachine/MoreStateMachineScene.unity
     guid: ea216547bdf24044ab2d228859ce605c
+  - enabled: 1
+    path: Assets/Polish_And_More/Polish_Scene.unity
+    guid: b5e4608da7eb8084c894f44cf66d341c
+  - enabled: 1
+    path: Assets/Polish_And_More/Polish_End.unity
+    guid: b5e75a5be837dbf45924c4373c35d380
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0

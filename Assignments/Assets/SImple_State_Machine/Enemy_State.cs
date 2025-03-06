@@ -16,13 +16,16 @@ public class Enemy_State : MonoBehaviour
     private State currentState = State.Pace;
     int health = 6;
 
+    Animator anim;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        anim = GetComponent<Animator>();
     }
     void OnPace()
     {
+        anim.SetBool("Following", false);
         //What we do while pacing
         //print("I'm Pacing");
         target = route[routeIndex];
@@ -51,6 +54,7 @@ public class Enemy_State : MonoBehaviour
     }
     void OnFollow()
     {
+        anim.SetBool("Following", true);
         //what we do when following
         //print("I'm Following");
         MoveTo(target);
