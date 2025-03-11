@@ -18,7 +18,7 @@ public class Treasure : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<PlayerStateManager>() != null)
+        if (other.gameObject.GetComponent<FirstPersonController>() != null)
         {
             manager.EndGame();
         }

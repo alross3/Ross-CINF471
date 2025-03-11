@@ -99,16 +99,16 @@ public class Enemy_State : MonoBehaviour
         Debug.DrawRay(transform.position, transform.forward * 50, Color.green);
         if( Physics.Raycast(transform.position, transform.forward, out hit, 50))
         {
-            PlayerStateManager player = hit.transform.gameObject.GetComponent<PlayerStateManager>();
+            FirstPersonController player = hit.transform.gameObject.GetComponent<FirstPersonController>();
 
-            if (player != null)
-            {
-                if (player.currentState != player.sneakState)
-                {
-                    print(hit.transform.gameObject.name);
-                    return hit.transform.gameObject;
-                }
-            }
+            //if (player != null)
+           // {
+           //     if (player.currentState != player.sneakState)
+           //     {
+           //         print(hit.transform.gameObject.name);
+           //         return hit.transform.gameObject;
+           //     }
+           // }
         }
         return null;
     }

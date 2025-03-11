@@ -94,6 +94,7 @@ public class FirstPersonController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        
     }
     //void OnAttack()
         //{
