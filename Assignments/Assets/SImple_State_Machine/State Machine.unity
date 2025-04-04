@@ -1790,6 +1790,50 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 06597224955233b4285a9d6bc75b2bf2, type: 3}
+--- !u!1 &1966776168
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1966776170}
+  - component: {fileID: 1966776169}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1966776169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966776168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b74199f086ed61343ab54d53c5a5187c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &1966776170
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1966776168}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.8825884, y: 1.23, z: -13.11}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1985804115
 GameObject:
   m_ObjectHideFlags: 0
@@ -2114,6 +2158,10 @@ PrefabInstance:
       propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.minCurve.m_Curve.Array.data[1].value
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5051813048636248197, guid: a90a5fbd63ee015448128ec273de6193, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 1966776169}
     - target: {fileID: 5621197970390657530, guid: a90a5fbd63ee015448128ec273de6193, type: 3}
       propertyPath: m_Name
       value: Powerup
@@ -2158,6 +2206,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 40.801
       objectReference: {fileID: 0}
+    - target: {fileID: 9094718227078589895, guid: a90a5fbd63ee015448128ec273de6193, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2188,3 +2240,4 @@ SceneRoots:
   - {fileID: 578251217}
   - {fileID: 789788735}
   - {fileID: 1373866456}
+  - {fileID: 1966776170}
